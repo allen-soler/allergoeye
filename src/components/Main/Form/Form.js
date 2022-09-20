@@ -45,8 +45,8 @@ const Form = () => {
     }
 
     return (
-        <Card classes={classes.formContainer}>
-            <div className={classes.formWrap}>
+        <Card classes={classes.formContainer} id="contact">
+            <div  className={classes.formWrap}>
                 <div className={classes.formChildWrap}>
                     <form onSubmit={submitHandler}>
                         <Input ref={emailInput} label={'E-mail'} id={'email'} isValid={emailState.isValid} type={'email'} value={emailState.value} onChange={emailChangeHandler} />

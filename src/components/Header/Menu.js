@@ -5,9 +5,10 @@ const MenuHamburger = () => {
 
     return (
         <Menu pageWrapId={"page-wrap"}>
-            <a id="home" className="menu-item" href="#page-wrap">Home</a>
-            <a id="about" className="menu-item" href="#about">About</a>
-            <a id="contact" className="menu-item" href="#contact">Contact</a>
+            <a  className="menu-item" href="#home">Home</a>
+            <a  className="menu-item" href="#about">About</a>
+            <a  className="menu-item" href="#price">Price</a>
+            <a  className="menu-item" href="#contact">Contact</a>
         </Menu>
     )
 }

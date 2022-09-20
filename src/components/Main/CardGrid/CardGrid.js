@@ -18,7 +18,7 @@ const CardGrid = () => {
             onEnter={() => setStatus(true)}
             onExit={() => setStatus(false)}
         >
-            <section id="allergoEye" className={classes.wrapper}>
+            <section id="about" className={classes.wrapper}>
                 <div className={classes.imageContainer}>
                     <img src={imageSrc} alt="Eye AI"/>
                 </div>

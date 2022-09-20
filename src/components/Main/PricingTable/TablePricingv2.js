@@ -2,7 +2,7 @@ import classes from "./TablePricingv2.module.css"
 
 const TablePricingv2 = () => {
     return (
-        <div className={classes.wrapper}>
+        <div className={classes.wrapper} id="price">
             <div className={classes.package}>
                 <div className={classes.name}>Limited</div>
                 <div className={classes.price}>€2</div>
