@@ -19,7 +19,6 @@ const Input = React.forwardRef((props, ref) => {
         <div
             className={`${classes.control} ${props.isValid === false ? classes.invalid : ''}`}
         >
-            <label htmlFor={props.id}>{props.label}</label>
             <input
                 ref={inputRef}
                 type={props.type}
@@ -27,6 +26,7 @@ const Input = React.forwardRef((props, ref) => {
                 value={props.value}
                 onChange={props.onChange}
                 onBlur={props.onBlur}
+                placeholder={props.label}
             />
         </div>
     )

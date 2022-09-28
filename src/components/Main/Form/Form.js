@@ -14,7 +14,17 @@ const emailReducer = (state, action) => {
     return { value: '', isValid: false };
 }
 
-const phoneReducer = (state, action) => {
+const nameReducer = (state, action) => {
+    if (action.type === 'USER_INPUT') {
+        return { value: action.val, isValid: action.val.trim().length > 6 };
+    }
+    if (action.type === 'INPUT_BLUR') {
+        return { value: state.value, isValid: state.value.trim().length > 6 };
+    }
+    return { value: '', isValid: false };
+}
+
+const textReducer = (state, action) => {
     if (action.type === 'USER_INPUT') {
         return { value: action.val, isValid: action.val.trim().length > 6 };
     }
@@ -26,19 +36,27 @@ const phoneReducer = (state, action) => {
 
 const Form = () => {
     const emailInput = useRef();
-    const passwordInput = useRef();
+    const nameInput = useRef();
+    const textInput = useRef();
 
 
     const [emailState, dispatchEmail] = useReducer(emailReducer, { value: '', isValid: null });
-    const [phoneState, dispatchPhone] = useReducer(phoneReducer, { value: '', isValid: null });
+    const [nameState, dispatchName] = useReducer(nameReducer, { value: '', isValid: null });
+    const [textState, dispatchText] = useReducer(textReducer, { value: '', isValid: null });
+
 
     const emailChangeHandler = (event) => {
         dispatchEmail({ type: 'USER_INPUT', val: event.target.value });
     };
 
-    const passwordChangeHandler = (event) => {
-        dispatchPhone({ type: 'USER_INPUT', val: event.target.value });
+    const nameChangeHandler = (event) => {
+        dispatchName({ type: 'USER_INPUT', val: event.target.value });
     };
+
+    const textChangeHandler = (event) => {
+        dispatchText({ type: 'USER_INPUT', val: event.target.value });
+    };
+
 
     const submitHandler = (e) => {
         e.preventDefault();
@@ -46,14 +64,17 @@ const Form = () => {
 
     return (
         <Card classes={classes.formContainer} id="contact">
-            <div  className={classes.formWrap}>
+            <div className={classes.formWrap}>
                 <div className={classes.formChildWrap}>
+                    <h1 className={classes.h1}>Contact Us</h1>
+
                     <form onSubmit={submitHandler}>
                         <Input ref={emailInput} label={'E-mail'} id={'email'} isValid={emailState.isValid} type={'email'} value={emailState.value} onChange={emailChangeHandler} />
-                        <Input ref={passwordInput} label={'Password'} id={'password'} isValid={phoneState.isValid} type={'password'} value={phoneState.value} onChange={passwordChangeHandler} />
+                        <Input ref={nameInput} label={'name'} id={'name'} isValid={emailState.isValid} type={'name'} value={nameState.value} onChange={nameChangeHandler} />
+                        <Input ref={textInput} label={'text'} id={'text'} isValid={emailState.isValid} type={'text'} value={textState.value} onChange={textChangeHandler} />
                         <div className={classes.actions}>
                             <Button type="submit" className={classes.btn}>
-                                Login
+                                SEND
                             </Button>
                         </div>
                     </form>
