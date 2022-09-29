@@ -13,8 +13,8 @@
     height: auto;
 }
 
-.imageContainer img {
-    width: 100%;
+.imageContainer video {
+    margin-left: 10%;
 }
 
 .text {

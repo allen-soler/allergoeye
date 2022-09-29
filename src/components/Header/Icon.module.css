@@ -1,3 +1,7 @@
+.container:first-child {
+    margin-top: 50%;
+}
+
 .container div img {
     width: 80px;
 }
