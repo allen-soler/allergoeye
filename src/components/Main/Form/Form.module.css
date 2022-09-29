@@ -1,12 +1,18 @@
 .formContainer {
     padding: 0 !important;
     height: 100vh;
+    overflow: hidden;
 }
 
 .formWrap {
-    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 40vh;
+}
+
+.mapContainer iframe {
+    border: 0;
+    text-align: center;
+    margin-right: 30%;
 }
