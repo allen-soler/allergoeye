@@ -1,5 +1,6 @@
-import { useEffect } from 'react';
+import {  useEffect } from 'react';
 import { ParallaxProvider } from 'react-scroll-parallax';
+import MenuHamburger from './components/Header/Menu';
 import Header from './components/Header/Header';
 import Main from './components/Main/Main';
 import "@fontsource/montserrat"; // Defaults to weight 400.
@@ -20,8 +21,11 @@ function App() {
 
   return (
     <ParallaxProvider>
-      <Header />
-      <Main />
+      <MenuHamburger />
+      <div id="page-wrap" >
+        <Header />
+        <Main />
+      </div>
     </ParallaxProvider>
   );
 }

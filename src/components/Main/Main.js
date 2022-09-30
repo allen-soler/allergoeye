@@ -7,7 +7,7 @@ import Form from "./Form/Form";
 const Main = () => {
 
     return (
-        <main id="page-wrap" className={classes.wrap}>
+        <main  className={classes.wrap}>
             <CardGrid />
             {/* <TablePricing />
             <TablePricingv2 /> */}

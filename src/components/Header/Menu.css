@@ -38,9 +38,10 @@
 
 /* General sidebar styles */
 .bm-menu {
-    /* background: #020b1d; */
+    background-color: hsl(219, 87%, 6%);
     padding: 2.5em 1.5em 0;
-    font-size: 1.15em;
+    font-size: 16px;
+    line-height: 18.72px;
     margin: 0;
     padding: 0;
     overflow: hidden !important;

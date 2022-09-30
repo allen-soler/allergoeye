@@ -1,4 +1,4 @@
-import { slide as Menu } from "react-burger-menu";
+import { push as Menu } from "react-burger-menu";
 import home from "../../Img/home.png"
 import ae from "../../Img/AE.png"
 import sci from "../../Img/sci.png"
@@ -11,7 +11,7 @@ import "./Menu.css"
 const MenuHamburger = () => {
 
     return (
-        <Menu pageWrapId={"page-wrap"}>
+        <Menu pageWrapId={ "page-wrap" }>
             <div className={module.container}>
                 <div>
                     <a className="menu-item" href="#home">

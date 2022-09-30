@@ -13,7 +13,7 @@
 }
 
 .text {
-    width: 50%;
+    width: 40%;
     padding: 9em;
     position: absolute;
     animation: fadeIn 5s;
@@ -44,8 +44,32 @@
 }
 
 .canvas {
-    left: 0;
-    top: 0;
     margin-left: 20%;
     width: 100%;
+}
+
+@media only screen and (max-width: 600px) {
+
+    .wrap {
+        width: 100%;
+    }
+
+    .text {
+        width: 100%;
+        margin: 50% auto;
+        padding: 0;
+        position: inherit;
+    }
+
+    .canvasWrap {
+        position: absolute;
+        left: 0px;
+        top: 0px;
+        z-index: -1;
+        opacity: 0.4;
+    }
+
+    .canvas {
+        margin: 0;
+    }
 }
