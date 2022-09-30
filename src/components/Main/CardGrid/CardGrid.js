@@ -1,5 +1,5 @@
 
-import {useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Parallax } from 'react-scroll-parallax';
 import classes from "./CardGrid.module.css"
 import vid from "../../../video/mask0001-0500.mp4"
@@ -10,6 +10,14 @@ const CardGrid = () => {
 
     let fading = number > 0 && status === true ? classes.animation : classes.text;
 
+    const videoRef = useRef();
+
+    useEffect(() => {
+
+        videoRef.current.play();
+
+    }, [])
+
     return (
         <Parallax
             onProgressChange={(progress) => setNumber(progress)}
@@ -18,8 +26,7 @@ const CardGrid = () => {
         >
             <section id="AE" className={classes.wrapper}>
                 <div className={classes.imageContainer}>
-               
-                    <video  width="100%"
+                    <video ref={videoRef} width="100%"
                         muted
                         autoPlay
                         loop >
