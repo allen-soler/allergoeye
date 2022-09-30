@@ -7,6 +7,7 @@ import vid from "../../../video/mask0001-0500.mp4"
 const CardGrid = () => {
     const [number, setNumber] = useState(0);
     const [status, setStatus] = useState(false);
+
     let fading = number > 0.35 && status === true ? classes.animation : classes.text;
 
     const videoRef = useRef();
@@ -25,12 +26,14 @@ const CardGrid = () => {
         >
             <section id="AE" className={classes.wrapper}>
                 <div className={classes.imageContainer}>
-                    <video ref={videoRef} width="100%"
-                        muted
-                        autoPlay
-                        loop >
-                        <source src={vid} type="video/mp4" />
-                    </video>
+                    {number > 0.35 &&
+                        <video ref={videoRef} width="100%"
+                            muted
+                            autoPlay
+                            loop >
+                            <source src={vid} type="video/mp4" />
+                        </video>
+                    }
                 </div>
                 <div className={fading}>
                     <h1>AllergoEye</h1>
