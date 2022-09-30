@@ -26,14 +26,12 @@ const CardGrid = () => {
         >
             <section id="AE" className={classes.wrapper}>
                 <div className={classes.imageContainer}>
-                    {number > 0.35 &&
-                        <video ref={videoRef} width="100%"
-                            muted
-                            autoPlay
-                            loop >
-                            <source src={vid} type="video/mp4" />
-                        </video>
-                    }
+                    <video ref={videoRef} width="100%"
+                        muted
+                        autoPlay
+                        loop >
+                        <source src={vid} type="video/mp4" />
+                    </video>
                 </div>
                 <div className={fading}>
                     <h1>AllergoEye</h1>
