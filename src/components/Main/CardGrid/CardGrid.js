@@ -29,6 +29,7 @@ const CardGrid = () => {
                     <video ref={videoRef} width="100%"
                         muted
                         autoPlay
+                        playsinline
                         loop >
                         <source src={vid} type="video/mp4" />
                     </video>
