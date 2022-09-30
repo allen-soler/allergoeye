@@ -8,27 +8,28 @@
     height: 100vh;
 }
 
-.imageContainer {
+.vidContainer {
     width: 100%;
     height: auto;
-}
-
-.imageContainer video {
-    margin-left: 10%;
 }
 
 .text {
     display: none;
 }
 
-.text h1 {
-    margin-bottom: 5%;
+.textWrap>* {
+    margin-bottom: 10%;
+}
+
+.textWrap p {
+    text-align: justify;
 }
 
 .animation {
     display: block;
     animation: textAni 3s;
 }
+
 
 @keyframes textAni {
     0% {
@@ -46,7 +47,7 @@
 
 @media only screen and (max-width: 600px) {
     .wrapper {
-        width: 100%;
+        width: 90%;
         display: flex;
         flex-direction: column-reverse;
         padding: 0;

@@ -25,7 +25,7 @@ const CardGrid = () => {
             onExit={() => setStatus(false)}
         >
             <section id="AE" className={classes.wrapper}>
-                <div className={classes.imageContainer}>
+                <div className={classes.vidContainer}>
                     <video ref={videoRef} width="100%"
                         muted
                         autoPlay
@@ -34,7 +34,7 @@ const CardGrid = () => {
                         <source src={vid} type="video/mp4" />
                     </video>
                 </div>
-                <div className={fading}>
+                <div className={`${fading} ${classes.textWrap}`}>
                     <h1>AllergoEye</h1>
                     <h2>Objective quantitative measurement of allergic reaction</h2>
                     <p>

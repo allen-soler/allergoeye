@@ -20,6 +20,10 @@
     font-weight: 500;
 }
 
+.text p {
+    text-align: justify;
+}
+
 @keyframes fadeIn {
     0% {
         opacity: 0;
@@ -55,7 +59,7 @@
     }
 
     .text {
-        width: 100%;
+        width: 90%;
         margin: 50% auto;
         padding: 0;
         position: inherit;
