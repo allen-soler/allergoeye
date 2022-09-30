@@ -27,12 +27,12 @@
 
 .animation {
     display: block;
-    animation: textAni 5s;
+    animation: textAni 3s;
 }
 
 @keyframes textAni {
     0% {
-        opacity: 0;
+        opacity: 0.3;
     }
 
     50% {
