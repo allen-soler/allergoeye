@@ -1,9 +1,10 @@
-import {  useEffect } from 'react';
+import { useEffect } from 'react';
 import { ParallaxProvider } from 'react-scroll-parallax';
 import MenuHamburger from './components/Header/Menu';
-import Header from './components/Header/Header';
-import Main from './components/Main/Main';
-import "@fontsource/montserrat"; // Defaults to weight 400.
+import "@fontsource/montserrat";
+import Mainpage from './pages/MainPage';
+import { Route, Routes } from 'react-router-dom';
+import ScientificWork from './pages/ScientificWork';
 
 function App() {
   useEffect(() => {
@@ -22,10 +23,13 @@ function App() {
   return (
     <ParallaxProvider>
       <MenuHamburger />
-      <div id="page-wrap" >
-        <Header />
-        <Main />
-      </div>
+      <Routes>
+        <Route path='/' element={<Mainpage />} />
+        <Route path='/#AE' element={<Mainpage />} />
+        <Route path='/#Contact' element={<Mainpage />} />
+        <Route path='/scientific-work' element={<ScientificWork />} />
+        <Route path='*' element={<Mainpage />} />
+      </Routes>
     </ParallaxProvider>
   );
 }

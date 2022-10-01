@@ -17,3 +17,14 @@
     text-decoration: none;
     color: white;
 }
+
+@media only screen and (max-width: 600px) {
+    .container:first-child {
+        margin-top: 0;
+    }
+
+    .container div img {
+        width: 44px;
+    }
+
+}
