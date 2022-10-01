@@ -25,8 +25,6 @@ function App() {
       <MenuHamburger />
       <Routes>
         <Route path='/' element={<Mainpage />} />
-        <Route path='/#AE' element={<Mainpage />} />
-        <Route path='/#Contact' element={<Mainpage />} />
         <Route path='/scientific-work' element={<ScientificWork />} />
         <Route path='*' element={<Mainpage />} />
       </Routes>

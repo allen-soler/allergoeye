@@ -1,16 +1,15 @@
-import { Fragment } from "react";
 import Header from "../components/Header/Header";
 import IntroPage from "../components/MainPage/IntroPage.js";
 import ScIndex from "../components/ScientificWork/ScIndex.js";
 
 const ScientificWork = () => {
     return (
-        <Fragment>
+        <div id="page-wrap" >
             <Header>
                 <IntroPage />
             </Header>
             <ScIndex />
-        </Fragment>
+        </div>
     )
 }
 

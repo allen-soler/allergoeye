@@ -7,42 +7,40 @@ import support from "../../Img/login.png"
 import contact from "../../Img/mail.png"
 import module from "./Icon.module.css"
 import "./Menu.css"
-import { NavLink } from "react-router-dom";
 
 const MenuHamburger = () => {
-
     return (
         <Menu pageWrapId={"page-wrap"}>
             <div className={module.container}>
                 <div>
-                    <NavLink className="menu-item" to="/#home">
+                    <a className="menu-item" href="/#home">
                         <img src={home} alt="Home" />
-                        Home</NavLink>
+                        Home</a>
                 </div>
                 <div>
-                    <NavLink className="menu-item" to="/#AE">
+                    <a className="menu-item" href="/#AE">
                         <img src={ae} alt="Allergo Eye" />
-                        Allergo Eye</NavLink>
+                        Allergo Eye</a>
                 </div>
                 <div>
-                    <NavLink className="menu-item" to="/scientific-work">
+                    <a className="menu-item" href="/scientific-work">
                         <img src={sci} alt="Scientific Work" />
-                        Scientific Work</NavLink>
+                        Scientific Work</a>
                 </div>
                 <div>
-                    <NavLink className="menu-item" to="/#BusinessDevelopment">
+                    <a className="menu-item" href="/#BusinessDevelopment">
                         <img src={BsDev} alt="Business Development" />
-                        Business Development</NavLink>
+                        Business Development</a>
                 </div>
                 <div>
-                    <NavLink className="menu-item" to="/#support">
+                    <a className="menu-item" href="/#support">
                         <img src={support} alt="Support" />
-                        Support</NavLink>
+                        Support</a>
                 </div>
                 <div>
-                    <NavLink className="menu-item" to="/#contact">
+                    <a className="menu-item" href="/#contact">
                         <img src={contact} alt="Contact" />
-                        Contact</NavLink>
+                        Contact</a>
                 </div>
             </div>
         </Menu>
