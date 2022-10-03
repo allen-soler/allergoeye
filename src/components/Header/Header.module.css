@@ -5,11 +5,18 @@
     width: 90%;
 }
 
+.wrapper {
+    position: absolute;
+    top: 0;
+    width: 90%;
+}
+
 .langMenu {
     display: flex;
     gap: 0.5rem;
     flex-direction: row-reverse;
-    margin: 2% auto;
+    margin-top: 2%;
+    top: 0;
 }
 
 .langMenu a {
@@ -20,4 +27,6 @@
 
 .user {
     text-align: right;
+    display: flex;
+    justify-content: flex-end;
 }
