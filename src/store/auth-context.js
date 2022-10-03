@@ -22,6 +22,7 @@ const calculateRemainingTime = (expirationTime) => {
 const revitrieveToken = () => {
     const storedToken = localStorage.getItem('token')
     const storedTime = localStorage.getItem('expirationTime')
+    const storedUser = localStorage.getItem('user');
 
     const remiaingTime = calculateRemainingTime(storedTime)
 
@@ -34,16 +35,21 @@ const revitrieveToken = () => {
 
     return ({
         token: storedToken,
-        time: remiaingTime
+        time: remiaingTime,
+        user: storedUser
     })
 }
 
 export const AuthContextProvider = (props) => {
     const tokenData = revitrieveToken();
     let initialToken;
-    if (tokenData) { initialToken = tokenData.token }
+    let initialUser;
+    if (tokenData) { 
+        initialToken = tokenData.token;
+        initialUser = tokenData.user;
+    }
     const [token, setToken] = useState(initialToken);
-    const [user, setUser] = useState('');
+    const [user, setUser] = useState(initialUser);
 
     const userIsLoggedIn = !!token;
 
