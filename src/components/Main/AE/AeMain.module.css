@@ -1,4 +1,8 @@
-.wrapper {
+.wrapper h1 {
+    text-align: center;
+}
+
+.wrap {
     display: flex;
     height: 100vh;
     flex-direction: row;

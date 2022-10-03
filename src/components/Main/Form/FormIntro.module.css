@@ -4,8 +4,34 @@
     overflow: hidden;
 }
 
+.mapContainer {
+    grid-area: Address;
+}
+
+.Form {
+    grid-area: Form;
+}
+
+.footer {
+    width: 100%;
+    grid-area: Footer;
+}
+
 .mapContainer iframe {
     border: 0;
     text-align: center;
     margin-right: 30%;
+}
+
+.footer div {
+    display: flex;
+    flex-direction: row;
+    gap: 5rem;
+    align-content: flex-start;
+    justify-content: center;
+}
+
+.footer a {
+    text-decoration: none;
+    color: white;
 }

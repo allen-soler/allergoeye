@@ -1,5 +1,4 @@
 import Header from "../components/Header/Header"
-import IntroPage from "../components/MainPage/IntroPage.js";
 import AeMain from "../components/Main/AE/AeMain";
 import CardRight from "../components/Main/AE/CardRight";
 import Main from "../components/Main/Main";
@@ -10,10 +9,9 @@ const AE = () => {
     return (
         <div id="page-wrap" >
             <Header>
-                <IntroPage />
+                <AeMain />
             </Header>
             <Main>
-                <AeMain />
                 <CardRight />
                 <Form />
             </Main>

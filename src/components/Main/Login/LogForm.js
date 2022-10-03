@@ -1,6 +1,6 @@
 import Input from "../../UI/Input/Input";
 import Button from "../../UI/Button/Button";
-import classes from "./Form.module.css"
+import classes from "../Form/Form.module.css"
 import { useReducer, useRef } from "react";
 
 const emailReducer = (state, action) => {
@@ -33,7 +33,7 @@ const textReducer = (state, action) => {
     return { value: '', isValid: false };
 }
 
-const Form = (props) => {
+const LogForm = (props) => {
     const emailInput = useRef();
     const nameInput = useRef();
     const textInput = useRef();
@@ -62,7 +62,7 @@ const Form = (props) => {
     }
 
     return (
-            <div className={`${classes.formWrap} ${props.Form}`}>
+            <div className={classes.formWrap}>
                 <div className={classes.formChildWrap}>
                     <h1 className={classes.h1}>Contact Us</h1>
 
@@ -81,4 +81,4 @@ const Form = (props) => {
     )
 }
 
-export default Form;
+export default LogForm;

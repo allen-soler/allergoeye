@@ -13,7 +13,7 @@ const MenuHamburger = () => {
         <Menu pageWrapId={"page-wrap"}>
             <div className={module.container}>
                 <div>
-                    <a className="menu-item" href="/#home">
+                    <a className="menu-item" href="/Home">
                         <img src={home} alt="Home" />
                         Home</a>
                 </div>
@@ -28,17 +28,17 @@ const MenuHamburger = () => {
                         Scientific Work</a>
                 </div>
                 <div>
-                    <a className="menu-item" href="/#BusinessDevelopment">
+                    <a className="menu-item" href="/BusinessDevelopment">
                         <img src={BsDev} alt="Business Development" />
                         Business Development</a>
                 </div>
                 <div>
-                    <a className="menu-item" href="/#support">
-                        <img src={support} alt="Support" />
-                        Support</a>
+                    <a className="menu-item" href="/Loging">
+                        <img src={support} alt="Loging" />
+                        Loging</a>
                 </div>
                 <div>
-                    <a className="menu-item" href="/#contact">
+                    <a className="menu-item" href="/contact">
                         <img src={contact} alt="Contact" />
                         Contact</a>
                 </div>
