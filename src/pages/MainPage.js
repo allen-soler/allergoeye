@@ -1,6 +1,8 @@
-import Header from "../components/Header/Header"
-import Main from "../components/Main/Main"
+import Header from "../components/Header/Header.js"
+import CardGrid from "../components/Main/CardGrid/CardGrid.js";
+import Main from "../components/Main/Main.js"
 import IntroPage from "../components/MainPage/IntroPage.js";
+import FormIntro from "../components/Main/Form/FormIntro.js";
 
 const Mainpage = () => {
     return (
@@ -8,7 +10,10 @@ const Mainpage = () => {
             <Header>
                 <IntroPage />
             </Header>
-            <Main />
+            <Main>
+                <CardGrid />
+                <FormIntro />
+            </Main>
         </div>
     )
 }

@@ -4,6 +4,7 @@ import module from "./IntroPage.module.css";
 import IntroText from "./IntroText";
 import ScText from "./ScText";
 
+
 const IntroPage = () => {
     const location = useLocation();
 

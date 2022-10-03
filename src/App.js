@@ -5,6 +5,7 @@ import "@fontsource/montserrat";
 import Mainpage from './pages/MainPage';
 import { Route, Routes } from 'react-router-dom';
 import ScientificWork from './pages/ScientificWork';
+import AE from './pages/AE';
 
 function App() {
   useEffect(() => {
@@ -25,6 +26,7 @@ function App() {
       <MenuHamburger />
       <Routes>
         <Route path='/' element={<Mainpage />} />
+        <Route path='/AE' element={<AE />} />
         <Route path='/scientific-work' element={<ScientificWork />} />
         <Route path='*' element={<Mainpage />} />
       </Routes>

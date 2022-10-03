@@ -1,14 +1,9 @@
 import classes from "./Main.module.css"
-import CardGrid from "./CardGrid/CardGrid";
-import Form from "./Form/Form";
 
-
-const Main = () => {
-
+const Main = (props) => {
     return (
         <main  className={classes.wrap}>
-            <CardGrid />
-            <Form />
+            {props.children}
         </main>
     )
 }

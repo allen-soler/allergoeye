@@ -18,7 +18,7 @@ const MenuHamburger = () => {
                         Home</a>
                 </div>
                 <div>
-                    <a className="menu-item" href="/#AE">
+                    <a className="menu-item" href="/AE">
                         <img src={ae} alt="Allergo Eye" />
                         Allergo Eye</a>
                 </div>

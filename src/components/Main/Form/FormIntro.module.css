@@ -1,0 +1,11 @@
+.formContainer {
+    padding: 0 !important;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.mapContainer iframe {
+    border: 0;
+    text-align: center;
+    margin-right: 30%;
+}
