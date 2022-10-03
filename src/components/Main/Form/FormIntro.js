@@ -11,7 +11,7 @@ const FormIntro = () => {
             </div>
             <div className={classes.footer}>
                 <div>
-                    <a href="/Impressum" alt="Impressum">Impressum</a>
+                    <a href="/Imprint" alt="Imprint">Imprint</a>
                     <a href="/DataProtection" alt="Data protection">Data protection</a>
                     <a href="/TermsandConditions" alt="Terms and conditions">Terms and conditions</a>
                 </div>

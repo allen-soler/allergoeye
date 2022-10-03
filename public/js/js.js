@@ -344,8 +344,4 @@ function anim() {
 	all.sort(function (a, b) { return b.screen.z - a.screen.z });
 	all.map(function (item) { item.draw(); });
 
-	/*ctx.beginPath();
-	ctx.strokeStyle = 'red';
-	ctx.arc( opts.vanishPoint.x, opts.vanishPoint.y, opts.range * opts.focalLength / opts.depth, 0, Tau );
-	ctx.stroke();*/
 }

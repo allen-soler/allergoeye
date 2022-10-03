@@ -12,8 +12,13 @@ import Contact from './pages/Contact';
 import DataProtection from './pages/SubPages/DataProtection';
 import Impressum from './pages/SubPages/Impressum';
 import TermsandConditions from './pages/SubPages/TermsandConditions';
+import { useContext } from 'react';
+import AuthContext from './store/auth-context';
 
 function App() {
+  const ctx = useContext(AuthContext);
+
+  console.log(ctx);
   useEffect(() => {
     const script = document.createElement('script');
 
@@ -38,7 +43,7 @@ function App() {
         <Route path='/Login' element={<Login />} />
         <Route path='/Contact' element={<Contact />} />
         <Route path='/DataProtection' element={<DataProtection />} />
-        <Route path='/Impressum' element={<Impressum />} />
+        <Route path='/Imprint' element={<Impressum />} />
         <Route path='/TermsandConditions' element={<TermsandConditions />} />
         <Route path='*' element={<Mainpage />} />
       </Routes>

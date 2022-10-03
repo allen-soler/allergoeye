@@ -7,8 +7,17 @@ import support from "../../Img/login.png"
 import contact from "../../Img/mail.png"
 import module from "./Icon.module.css"
 import "./Menu.css"
+import { useContext } from "react";
+import AuthContext from "../../store/auth-context";
 
 const MenuHamburger = () => {
+    const ctx = useContext(AuthContext);
+
+    console.log("this", ctx);
+    const logOutHandler = () => {
+        ctx.logout();
+      }
+
     return (
         <Menu pageWrapId={"page-wrap"}>
             <div className={module.container}>
@@ -33,9 +42,15 @@ const MenuHamburger = () => {
                         Business Development</a>
                 </div>
                 <div>
-                    <a className="menu-item" href="/Login">
-                        <img src={support} alt="Login" />
-                        Login</a>
+
+                    {!ctx.isLoggedIn &&
+                        <a className="menu-item" href="/Login">
+                            <img src={support} alt="Login" />
+                            Login</a>}
+                    {ctx.isLoggedIn &&
+                        <a className="menu-item" href="/"  onClick={logOutHandler}>
+                            <img src={support} alt="Logout" />
+                            Logout</a>}
                 </div>
                 <div>
                     <a className="menu-item" href="/contact">

@@ -1,7 +1,10 @@
-import { Fragment } from 'react';
+import { Fragment, useContext } from 'react';
+import AuthContext from '../../store/auth-context';
 import module from './Header.module.css'
 
 const Header = (props) => {
+
+    const ctx = useContext(AuthContext)
     const langOnClick = (e) => {
         e.preventDefault();
     } 
@@ -11,6 +14,9 @@ const Header = (props) => {
             <div className={module.langMenu}>
                 <a id="EN" onClick={langOnClick} href="EN">EN</a>
                 <a id="DE" onClick={langOnClick} href="DE">DE</a>
+            </div>
+            <div className={module.user}>
+                <p>{ctx.user}</p>
             </div>
             <Fragment>
                 {props.children}

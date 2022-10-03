@@ -54,7 +54,7 @@ const LogForm = () => {
                 }
             }).then(data => {
                 const expTime = new Date(new Date().getTime() + (+data.expiresIn * 1000));
-                ctx.login(data.idToken, expTime.toISOString());
+                ctx.login(data.idToken, enteredEmail, expTime.toISOString());
                 navigate('/');
             }).catch((err) => {
                 alert(err);
