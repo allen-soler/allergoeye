@@ -1,8 +1,18 @@
 .wrapper h1 {
     text-align: center;
+    margin-top: 5%;
 }
 
 .wrap {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 10%;
+}
+
+.wrapperVid {
     display: flex;
     height: 100vh;
     flex-direction: row;

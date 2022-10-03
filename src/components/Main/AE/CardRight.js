@@ -24,7 +24,7 @@ const CardRight = () => {
             onEnter={() => setStatus(true)}
             onExit={() => setStatus(false)}
         >
-            <section className={classes.wrapper}>
+            <section className={classes.wrapperVid}>
                 <div className={`${fading} ${classes.textWrap} ${classes.reSizeText}`}>
                     <p>
                         AllergoEye involves a simple and fast workflow. After applying the allergen solution to the

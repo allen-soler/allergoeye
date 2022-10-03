@@ -64,7 +64,7 @@ const LogForm = (props) => {
     return (
             <div className={classes.formWrap}>
                 <div className={classes.formChildWrap}>
-                    <h1 className={classes.h1}>Contact Us</h1>
+                    <h1 className={classes.h1}>Login</h1>
 
                     <form onSubmit={submitHandler}>
                         <Input ref={emailInput} label={'E-mail'} id={'email'} isValid={emailState.isValid} type={'email'} value={emailState.value} onChange={emailChangeHandler} />
