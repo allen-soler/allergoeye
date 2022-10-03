@@ -35,7 +35,7 @@ function App() {
         <Route path='/AE' element={<AE />} />
         <Route path='/BusinessDevelopment' element={<BusinessDevelopment />} />
         <Route path='/scientific-work' element={<ScientificWork />} />
-        <Route path='/Loging' element={<Login />} />
+        <Route path='/Login' element={<Login />} />
         <Route path='/Contact' element={<Contact />} />
         <Route path='/DataProtection' element={<DataProtection />} />
         <Route path='/Impressum' element={<Impressum />} />

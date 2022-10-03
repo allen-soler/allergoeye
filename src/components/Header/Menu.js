@@ -33,9 +33,9 @@ const MenuHamburger = () => {
                         Business Development</a>
                 </div>
                 <div>
-                    <a className="menu-item" href="/Loging">
-                        <img src={support} alt="Loging" />
-                        Loging</a>
+                    <a className="menu-item" href="/Login">
+                        <img src={support} alt="Login" />
+                        Login</a>
                 </div>
                 <div>
                     <a className="menu-item" href="/contact">

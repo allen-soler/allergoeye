@@ -1,84 +1,91 @@
-import Input from "../../UI/Input/Input";
-import Button from "../../UI/Button/Button";
-import classes from "../Form/Form.module.css"
-import { useReducer, useRef } from "react";
+import { useState, useRef, useContext } from 'react';
+import { useNavigate } from 'react-router-dom';
+import AuthContext from '../../../store/auth-context';
+import classes from './LogForm.module.css';
 
-const emailReducer = (state, action) => {
-    if (action.type === 'USER_INPUT') {
-        return { value: action.val, isValid: action.val.includes('@') };
-    }
-    if (action.type === 'INPUT_BLUR') {
-        return { value: state.value, isValid: state.value.includes('@') }
-    }
-    return { value: '', isValid: false };
-}
+const LogForm = () => {
+    const ctx = useContext(AuthContext)
+    const navigate = useNavigate();
+    const emailInputRef = useRef();
+    const passwordInputRef = useRef();
+    const [isLogin, setIsLogin] = useState(true);
+    const [isLoading, setIsLoading] = useState(false);
 
-const nameReducer = (state, action) => {
-    if (action.type === 'USER_INPUT') {
-        return { value: action.val, isValid: action.val.trim().length > 6 };
-    }
-    if (action.type === 'INPUT_BLUR') {
-        return { value: state.value, isValid: state.value.trim().length > 6 };
-    }
-    return { value: '', isValid: false };
-}
-
-const textReducer = (state, action) => {
-    if (action.type === 'USER_INPUT') {
-        return { value: action.val, isValid: action.val.trim().length > 6 };
-    }
-    if (action.type === 'INPUT_BLUR') {
-        return { value: state.value, isValid: state.value.trim().length > 6 };
-    }
-    return { value: '', isValid: false };
-}
-
-const LogForm = (props) => {
-    const emailInput = useRef();
-    const nameInput = useRef();
-    const textInput = useRef();
-
-
-    const [emailState, dispatchEmail] = useReducer(emailReducer, { value: '', isValid: null });
-    const [nameState, dispatchName] = useReducer(nameReducer, { value: '', isValid: null });
-    const [textState, dispatchText] = useReducer(textReducer, { value: '', isValid: null });
-
-
-    const emailChangeHandler = (event) => {
-        dispatchEmail({ type: 'USER_INPUT', val: event.target.value });
+    const switchAuthModeHandler = () => {
+        setIsLogin((prevState) => !prevState);
     };
-
-    const nameChangeHandler = (event) => {
-        dispatchName({ type: 'USER_INPUT', val: event.target.value });
-    };
-
-    const textChangeHandler = (event) => {
-        dispatchText({ type: 'USER_INPUT', val: event.target.value });
-    };
-
 
     const submitHandler = (e) => {
         e.preventDefault();
+        const enteredEmail = emailInputRef.current.value;
+        const enteredPassword = passwordInputRef.current.value;
+
+        setIsLoading(true);
+        let url;
+        if (isLogin) {
+            url = 'https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyBmDq7c9glEuYbhKGp-4fjTBejj0q9lk2Y';
+
+        } else {
+            url = 'https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyBmDq7c9glEuYbhKGp-4fjTBejj0q9lk2Y';
+        }
+        fetch(url,
+            {
+                method: 'POST',
+                body: JSON.stringify({
+                    email: enteredEmail,
+                    password: enteredPassword,
+                    returnSecureToken: true
+                }),
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            }).then(res => {
+                setIsLoading(false);
+                if (res.ok) {
+                    return res.json();
+                } else {
+                    return res.json().then(data => {
+                        let errorMessage = 'Authentication Failed';
+                        if (data && data.error && data.error.message) {
+                            errorMessage = data.error.message;
+                        }
+                        throw new Error(errorMessage);
+                    })
+                }
+            }).then(data => {
+                const expTime = new Date(new Date().getTime() + (+data.expiresIn * 1000));
+                ctx.login(data.idToken, expTime.toISOString());
+                navigate('/');
+            }).catch((err) => {
+                alert(err);
+            })
     }
-
     return (
-            <div className={classes.formWrap}>
-                <div className={classes.formChildWrap}>
-                    <h1 className={classes.h1}>Login</h1>
-
-                    <form onSubmit={submitHandler}>
-                        <Input ref={emailInput} label={'E-mail'} id={'email'} isValid={emailState.isValid} type={'email'} value={emailState.value} onChange={emailChangeHandler} />
-                        <Input ref={nameInput} label={'name'} id={'name'} isValid={emailState.isValid} type={'name'} value={nameState.value} onChange={nameChangeHandler} />
-                        <Input ref={textInput} label={'text'} id={'text'} isValid={emailState.isValid} type={'text'} value={textState.value} onChange={textChangeHandler} />
-                        <div className={classes.actions}>
-                            <Button type="submit" className={classes.btn}>
-                                SEND
-                            </Button>
-                        </div>
-                    </form>
+        <section className={classes.auth}>
+            <h1>{isLogin ? 'Login' : 'Sign Up'}</h1>
+            <form onSubmit={submitHandler}>
+                <div className={classes.control}>
+                    <label htmlFor='email'>Your Email</label>
+                    <input type='email' id='email' required ref={emailInputRef} />
                 </div>
-            </div>
-    )
-}
+                <div className={classes.control}>
+                    <label htmlFor='password'>Your Password</label>
+                    <input type='password' id='password' required ref={passwordInputRef} />
+                </div>
+                <div className={classes.actions}>
+                    {!isLoading && <button>{isLogin ? 'Login' : 'Create Account'}</button>}
+                    {isLoading && <p>Is Loading...</p>}
+                    <button
+                        type='button'
+                        className={classes.toggle}
+                        onClick={switchAuthModeHandler}
+                    >
+                        {isLogin ? 'Create new account' : 'Login with existing account'}
+                    </button>
+                </div>
+            </form>
+        </section>
+    );
+};
 
 export default LogForm;
