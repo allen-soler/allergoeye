@@ -1,0 +1,7 @@
+.wrap {
+    height: 100%;
+    overflow: auto;
+    text-align: center;
+    width: 80%;
+    margin: 0 auto;
+}

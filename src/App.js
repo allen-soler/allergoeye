@@ -1,54 +1,20 @@
-import { useEffect } from 'react';
-import { ParallaxProvider } from 'react-scroll-parallax';
-import MenuHamburger from './components/Header/Menu';
-import "@fontsource/montserrat";
-import Mainpage from './pages/MainPage';
-import { Route, Routes } from 'react-router-dom';
-import ScientificWork from './pages/ScientificWork';
-import AE from './pages/AE';
-import BusinessDevelopment from './pages/BusinessDevelopment';
-import Login from './pages/Login';
-import Contact from './pages/Contact';
-import DataProtection from './pages/SubPages/DataProtection';
-import Impressum from './pages/SubPages/Impressum';
-import TermsandConditions from './pages/SubPages/TermsandConditions';
-import { useContext } from 'react';
-import AuthContext from './store/auth-context';
+const express = require('express')
+const path = require('path');
+require('./db/mongoose')
+const userRouter = require('./routers/user')
+const productRouter = require('./routers/product')
 
-function App() {
-  const ctx = useContext(AuthContext);
+const app = express();
 
-  console.log(ctx);
-  useEffect(() => {
-    const script = document.createElement('script');
 
-    script.src = './js/js.js';
-    script.async = true;
+app.use(express.json())
+app.use(userRouter)
+app.use(productRouter)
+app.use(express.static(path.resolve(__dirname, '../client/build')));
 
-    document.body.appendChild(script);
+// All other GET requests not handled before will return our React app
+app.get('*', (req, res) => {
+    res.sendFile(path.resolve(__dirname, '../client/build', 'index.html'));
+});
 
-    return () => {
-      document.body.removeChild(script);
-    }
-  }, []);
-
-  return (
-    <ParallaxProvider>
-      <MenuHamburger />
-      <Routes>
-        <Route path='/' element={<Mainpage />} />
-        <Route path='/AE' element={<AE />} />
-        <Route path='/BusinessDevelopment' element={<BusinessDevelopment />} />
-        <Route path='/scientific-work' element={<ScientificWork />} />
-        <Route path='/Login' element={<Login />} />
-        <Route path='/Contact' element={<Contact />} />
-        <Route path='/DataProtection' element={<DataProtection />} />
-        <Route path='/Imprint' element={<Impressum />} />
-        <Route path='/TermsandConditions' element={<TermsandConditions />} />
-        <Route path='*' element={<Mainpage />} />
-      </Routes>
-    </ParallaxProvider>
-  );
-}
-
-export default App;
+module.exports = app

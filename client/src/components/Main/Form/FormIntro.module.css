@@ -1,0 +1,20 @@
+.formContainer {
+    padding: 0 !important;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.mapContainer {
+    grid-area: Address;
+}
+
+.Form {
+    grid-area: Form;
+}
+
+
+.mapContainer iframe {
+    border: 0;
+    text-align: center;
+    margin-right: 30%;
+}

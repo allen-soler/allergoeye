@@ -1,0 +1,19 @@
+.footer {
+    width: 100%;
+    grid-area: Footer;
+    margin-bottom: 2%;
+
+}
+
+.footer div {
+    display: flex;
+    flex-direction: row;
+    gap: 5rem;
+    align-content: flex-start;
+    justify-content: center;
+}
+
+.footer a {
+    text-decoration: none;
+    color: white;
+}

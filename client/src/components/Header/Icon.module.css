@@ -1,0 +1,30 @@
+.container:first-child {
+    margin-top: 40%;
+}
+
+.container div img {
+    width: 52px;
+}
+
+.container div a {
+    font-family: "Montserrat";
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    display: flex;
+    align-items: center;
+    align-content: center;
+    gap: 1rem;
+    text-decoration: none;
+    color: white;
+}
+
+@media only screen and (max-width: 600px) {
+    .container:first-child {
+        margin-top: 0;
+    }
+
+    .container div img {
+        width: 44px;
+    }
+
+}
